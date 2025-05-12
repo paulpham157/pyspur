@@ -16,15 +16,9 @@
 <a href="https://docs.pyspur.dev/" target="_blank">
   <img alt="Docs" src="https://img.shields.io/badge/Docs-green.svg?style=for-the-badge&logo=readthedocs&logoColor=white">
 </a>
-<a href="https://calendly.com/d/cnf9-57m-bv3/pyspur-founders" target="_blank">
-  <img alt="Meet us" src="https://img.shields.io/badge/Meet%20us-blue.svg?style=for-the-badge&logo=calendly&logoColor=white">
-</a>
 <a href="https://forms.gle/5wHRctedMpgfNGah7" target="_blank">
   <img alt="Cloud" src="https://img.shields.io/badge/Cloud-orange.svg?style=for-the-badge&logo=cloud&logoColor=white">
 </a>
-  <a href="https://discord.gg/7Spn7C8A5F">
-    <img alt="Join Our Discord" src="https://img.shields.io/badge/Discord-7289DA.svg?style=for-the-badge&logo=discord&logoColor=white">
-  </a>
 </p>
 
 https://github.com/user-attachments/assets/54d0619f-22fd-476c-bf19-9be083d7e710
