@@ -1,7 +1,6 @@
 import {
     Accordion,
     AccordionItem,
-    Badge,
     Button,
     Input,
     Modal,
@@ -9,19 +8,19 @@ import {
     ModalContent,
     ModalFooter,
     ModalHeader,
-    Textarea
 } from '@heroui/react'
 import { Icon as IconifyIcon } from '@iconify/react'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+
 import { setApiKey } from '../../utils/api'
 
 interface SlackSetupGuideProps {
-    onClose: () => void;
-    onConnectClick: () => void;
-    setupInfo?: any;
-    onGoToSettings?: () => void;
-    onTokenConfigured?: () => void;
+    onClose: () => void
+    onConnectClick: () => void
+    setupInfo?: any
+    onGoToSettings?: () => void
+    onTokenConfigured?: () => void
 }
 
 const SlackSetupGuide: React.FC<SlackSetupGuideProps> = ({
@@ -29,7 +28,7 @@ const SlackSetupGuide: React.FC<SlackSetupGuideProps> = ({
     onConnectClick,
     setupInfo,
     onGoToSettings,
-    onTokenConfigured
+    onTokenConfigured,
 }) => {
     const router = useRouter()
     const [botToken, setBotToken] = useState('')
@@ -77,7 +76,8 @@ const SlackSetupGuide: React.FC<SlackSetupGuideProps> = ({
                 </ModalHeader>
                 <ModalBody>
                     <p className="mb-4">
-                        Set up Slack integration by providing your Bot Token directly. After configuration, you'll create your first Slack agent.
+                        Set up Slack integration by providing your Bot Token directly. After configuration, you&apos;ll
+                        create your first Slack agent.
                     </p>
 
                     <Accordion>
@@ -96,8 +96,20 @@ const SlackSetupGuide: React.FC<SlackSetupGuideProps> = ({
                             <div className="pl-8 text-sm space-y-2">
                                 <p>To create a new Slack app:</p>
                                 <ol className="list-decimal list-inside space-y-1 pl-2">
-                                    <li>Go to <a href="https://api.slack.com/apps" target="_blank" rel="noopener noreferrer" className="text-primary underline">Slack API Apps page</a></li>
-                                    <li>Click <strong>Create New App</strong> → <strong>From scratch</strong></li>
+                                    <li>
+                                        Go to{' '}
+                                        <a
+                                            href="https://api.slack.com/apps"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-primary underline"
+                                        >
+                                            Slack API Apps page
+                                        </a>
+                                    </li>
+                                    <li>
+                                        Click <strong>Create New App</strong> → <strong>From scratch</strong>
+                                    </li>
                                     <li>Name your app (e.g., &quot;PySpur Bot&quot;)</li>
                                     <li>Select the workspace where you want to install the app</li>
                                 </ol>
@@ -119,14 +131,22 @@ const SlackSetupGuide: React.FC<SlackSetupGuideProps> = ({
                             <div className="pl-8 text-sm space-y-2">
                                 <p>Configure the bot permissions for your app:</p>
                                 <ol className="list-decimal list-inside space-y-1 pl-2">
-                                    <li>In your app settings, go to <strong>OAuth & Permissions</strong></li>
-                                    <li>Under <strong>Bot Token Scopes</strong>, add the following scopes:
+                                    <li>
+                                        In your app settings, go to <strong>OAuth & Permissions</strong>
+                                    </li>
+                                    <li>
+                                        Under <strong>Bot Token Scopes</strong>, add the following scopes:
                                         <div className="bg-default-100 p-2 rounded mt-1 font-mono text-xs">
                                             channels:read, chat:write, team:read, app_mentions:read, im:read, im:history
                                         </div>
                                     </li>
-                                    <li>Click <strong>Install to Workspace</strong> at the top of the page</li>
-                                    <li>After installation, find your <strong>Bot User OAuth Token</strong> (starts with xoxb-)</li>
+                                    <li>
+                                        Click <strong>Install to Workspace</strong> at the top of the page
+                                    </li>
+                                    <li>
+                                        After installation, find your <strong>Bot User OAuth Token</strong> (starts with
+                                        xoxb-)
+                                    </li>
                                 </ol>
                             </div>
                         </AccordionItem>
@@ -195,7 +215,8 @@ const SlackSetupGuide: React.FC<SlackSetupGuideProps> = ({
                                     <li>Complete the setup to start using Slack with your workflows</li>
                                 </ol>
                                 <p className="mt-2 text-default-500">
-                                    You can create multiple agents for different purposes later from the Slack integration panel.
+                                    You can create multiple agents for different purposes later from the Slack
+                                    integration panel.
                                 </p>
                             </div>
                         </AccordionItem>
@@ -215,13 +236,17 @@ const SlackSetupGuide: React.FC<SlackSetupGuideProps> = ({
                             <div className="pl-8 text-sm space-y-2">
                                 <p>To enable automatic triggers from Slack events:</p>
                                 <ol className="list-decimal list-inside space-y-1 pl-2">
-                                    <li>In your app settings, go to <strong>Event Subscriptions</strong></li>
-                                    <li>Enable events and set the Request URL to your PySpur instance:
+                                    <li>
+                                        In your app settings, go to <strong>Event Subscriptions</strong>
+                                    </li>
+                                    <li>
+                                        Enable events and set the Request URL to your PySpur instance:
                                         <div className="bg-default-100 p-2 rounded mt-1 font-mono text-xs">
                                             {`${window.location.origin}/api/slack/events`}
                                         </div>
                                     </li>
-                                    <li>Under <strong>Subscribe to bot events</strong>, add:
+                                    <li>
+                                        Under <strong>Subscribe to bot events</strong>, add:
                                         <ul className="list-disc list-inside pl-4 mt-1">
                                             <li>message.im (for direct messages)</li>
                                             <li>message.channels (for channel messages)</li>
@@ -243,9 +268,9 @@ const SlackSetupGuide: React.FC<SlackSetupGuideProps> = ({
                         size="sm"
                         className="mt-2"
                         onPress={() => {
-                            onClose();
+                            onClose()
                             if (typeof onGoToSettings === 'function') {
-                                onGoToSettings();
+                                onGoToSettings()
                             }
                         }}
                         startContent={<IconifyIcon icon="lucide:settings" width={16} />}
